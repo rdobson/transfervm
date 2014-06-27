@@ -526,6 +526,7 @@ def write_network_config(session, vm, expose_args):
 
     if expose_args['network_mode'] == 'dhcp':
         add('config_mode', 'dhcp')
+        add('dhcp-client', 'dhclient')
     else:
         add('config_mode', 'manual')
         add('ip', expose_args['network_ip'])

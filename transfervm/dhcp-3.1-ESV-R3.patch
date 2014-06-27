@@ -1,0 +1,11 @@
+--- package/dhcp/dhcp.mk	2014-06-25 11:20:05.928184775 -0400
++++ package/dhcp/dhcp.mk	2009-02-12 03:49:58.000000000 -0500
+@@ -3,7 +3,7 @@
+ # dhcp
+ #
+ #############################################################
+-DHCP_VERSION:=3.0.5
++DHCP_VERSION:=3.1-ESV-R3
+ DHCP_SOURCE:=dhcp-$(DHCP_VERSION).tar.gz
+ DHCP_SITE:=ftp://ftp.isc.org/isc/dhcp/dhcp-3.0-history
+ DHCP_CAT:=$(ZCAT)

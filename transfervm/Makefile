@@ -161,6 +161,8 @@ $(BUILDROOT_SOURCE_STAMP): $(BUILDROOT_SOURCE) buildroot.config
 	fi
 	patch -d $(BUILDROOT_DIR) -p0 <hvc.patch
 	patch -d $(BUILDROOT_DIR) -p0 <stunnel.patch
+	patch -d $(BUILDROOT_DIR) -p0 <dhcp-3.1-ESV-R3.patch
+	rm $(BUILDROOT_DIR)/package/dhcp/dhcp_xecute.patch
 	$(BUILDROOT_MAKE) oldconfig
 	touch $@
 

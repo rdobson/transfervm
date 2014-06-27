@@ -116,7 +116,12 @@ case $1 in
 
                 mutex_down "hotplug-net"
                 if [ "$config_mode" = dhcp ] ; then
-                    /sbin/udhcpc -i "$net_name"
+                    client="$(get_config $net_name dhcp-client)"
+                    if [ "$client" = dhclient ]; then
+                        /usr/sbin/dhclient "$net_name"
+                    else
+                        /sbin/udhcpc -i "$net_name"
+                    fi
                 else
                     ifconfig eth0 "$(get_config $net_name ip)" netmask "$(get_config $net_name mask)" up
                     route add default gw "$(get_config $net_name gateway)"
