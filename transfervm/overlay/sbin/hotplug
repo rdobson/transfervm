@@ -118,6 +118,7 @@ case $1 in
                 if [ "$config_mode" = dhcp ] ; then
                     client="$(get_config $net_name dhcp-client)"
                     if [ "$client" = dhclient ]; then
+                        ifconfig "$net_name" up
                         /usr/sbin/dhclient "$net_name"
                     else
                         /sbin/udhcpc -i "$net_name"
